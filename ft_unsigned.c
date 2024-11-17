@@ -16,7 +16,7 @@ int	ft_unsigned(int n)
 {
 	int	count;
 
-	count = 1;
+	count = 0;
 	if (n >= 10)
 	{
 		ft_unsigned(n / 10);

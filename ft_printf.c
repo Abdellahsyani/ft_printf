@@ -38,6 +38,12 @@ int	ft_printf(const char *format, ...)
 				counts += ft_Hexa(va_arg(args, int));
 			else if (format[i] == 'u')
 					counts += ft_unsigned(va_arg(args, int));
+			else if (format[i] == 'p')
+			{
+				ft_putchar('0');
+				ft_putchar('x');
+				counts += ft_addr(va_arg(args, void *));
+			}
 		}
 		else
 			counts += ft_putchar(format[i]);
@@ -52,9 +58,13 @@ int main()
 	char name[] = "abdellah";
 	int age = 26;
 	char c = 'A';
-	int x = 74;
+	int a = 808689;
+	int *x;
 
-	printf("%u\n", x);
-	int i = ft_printf("hello ma name is %s and I am %d and the %c, %u\n", name, age, c, x);
-	ft_printf("%d", i);
+	x = &a;
+	printf("%p\n", x);
+	int i = ft_printf("hello ma name is %s and I am %d and the %c\n", name, age, c);
+	ft_printf("%d\n", i);
+	int o = printf("hello ma name is %s and I am %d and the %c\n", name, age, c);
+	printf("%d", o);
 }

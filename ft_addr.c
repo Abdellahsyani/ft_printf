@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_HEX.c                                           :+:      :+:    :+:   */
+/*   ft_addr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asyani <asyani@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 12:56:13 by asyani            #+#    #+#             */
-/*   Updated: 2024/11/17 12:57:19 by asyani           ###   ########.fr       */
+/*   Created: 2024/11/17 14:57:21 by asyani            #+#    #+#             */
+/*   Updated: 2024/11/17 16:03:47 by asyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_Hexa(int n)
+int	ft_addr(void *v)
 {
-	char	*Hex;
-	int		count;
+	char	*p;
+	int	count;
+	uintptr_t add;
 
-	count = 1;
-	Hex = "0123456789ABCDEF";
-	if (n >= 16)
+	add = (uintptr_t)v;
+	p = "0123456789abcdef";
+	count = 0;
+	if (add < 16)
 	{
-		ft_Hexa(n / 16);
+		ft_putchar(p[add]);
+		return (1);
 	}
-	count += ft_putchar(Hex[n % 16]);
+	ft_addr((void *)(add / 16));
+	count += ft_putchar(p[add % 16]);
 	return (count);
 }
