@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asyani <asyani@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/17 11:32:42 by asyani            #+#    #+#             */
+/*   Updated: 2024/11/17 11:39:56 by asyani           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 
 /**
@@ -5,13 +17,17 @@
  * @n: the number to print
  */
 
-static void	helper(int n)
+static int	helper(int n)
 {
+	int count;
+
+	count = 0;
 	if (n > 9)
 	{
-		helper(n / 10);
+		count += helper(n / 10);
 	}
 	ft_putchar(n % 10 + '0');
+	return (count);
 }
 
 /**
@@ -19,13 +35,17 @@ static void	helper(int n)
  * @n: the integer that will print
  */
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
+	int	count;
+
+	count = 0;
 	if (n < 0)
 	{
 		ft_putchar('-');
-		helper(-n);
+		count += helper(-n);
 	}
 	else
-		helper(n);
+		count += helper(n);
+	return (count);
 }

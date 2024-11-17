@@ -5,14 +5,18 @@
  * @str: the string that will print
  */
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	int	i;
+	int	count;
 
+	count = 0;
 	i = 0;
 	while (str[i])
 	{
 		ft_putchar(str[i]);
+		count++;
 		i++;
 	}
+	return (count);
 }

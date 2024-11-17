@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asyani <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: asyani <asyani@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 12:35:52 by asyani            #+#    #+#             */
-/*   Updated: 2024/11/16 12:36:37 by asyani           ###   ########.fr       */
+/*   Created: 2024/11/17 11:31:25 by asyani            #+#    #+#             */
+/*   Updated: 2024/11/17 12:54:52 by asyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-
 
 int	ft_printf(const char *format, ...)
 {
@@ -20,20 +19,24 @@ int	ft_printf(const char *format, ...)
 	int	counts;
 
 	i = 0;
-	counts = 0;
+	counts = 1;
 	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == 'd')
-				ft_putnbr(va_arg(args,  int));
+			if (format[i] == 'd' || format[i] == 'i')
+				counts += ft_putnbr(va_arg(args,  int));
 			else if (format[i] == 's')
-				ft_putstr(va_arg(args, char *));
+				counts += ft_putstr(va_arg(args, char *));
+			else if (format[i] == 'c')
+				counts += ft_putchar(va_arg(args, int));
+			else if (format[i] == 'x')
+				counts += ft_hexa(va_arg(args, int));
 		}
 		else
-			ft_putchar(format[i]);
+			counts += ft_putchar(format[i]);
 		i++;
 	}
 	va_end(args);
@@ -44,5 +47,9 @@ int main()
 {
 	char name[] = "abdellah";
 	int age = 26;
-	ft_printf("hello ma name is %s and I am %d\n", name, age);
+	char c = 'A';
+	int x = 74;
+
+	int i = ft_printf("hello ma name is %s and I am %d and the %c, %x\n", name, age, c, x);
+	ft_printf("%d", i);
 }
