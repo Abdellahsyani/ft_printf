@@ -6,6 +6,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 
+int	ft_printf(const char *format, ...);
 int	ft_putnbr(int n);
 int	ft_putstr(char *str);
 int	ft_putchar(char c);

@@ -52,19 +52,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (counts);
 }
-
-int main()
-{
-	char name[] = "abdellah";
-	int age = 26;
-	char c = 'A';
-	int a = 808689;
-	int *x;
-
-	x = &a;
-	printf("%p\n", x);
-	int i = ft_printf("hello ma name is %s and I am %d and the %c\n", name, age, c);
-	ft_printf("%d\n", i);
-	int o = printf("hello ma name is %s and I am %d and the %c\n", name, age, c);
-	printf("%d", o);
-}
