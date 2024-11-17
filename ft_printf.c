@@ -40,8 +40,8 @@ int	ft_printf(const char *format, ...)
 					counts += ft_unsigned(va_arg(args, int));
 			else if (format[i] == 'p')
 			{
-				ft_putchar('0');
-				ft_putchar('x');
+				counts += ft_putchar('0');
+				counts += ft_putchar('x');
 				counts += ft_addr(va_arg(args, void *));
 			}
 		}

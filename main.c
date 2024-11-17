@@ -4,6 +4,7 @@ int main()
 {
 	char *name = "abdellah";
 	int age = 26;
+	char 
 	int x = 23;
 	int u = 67;
 	int *p = &u;
