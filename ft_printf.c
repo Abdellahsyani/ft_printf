@@ -6,7 +6,7 @@
 /*   By: asyani <asyani@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 11:31:25 by asyani            #+#    #+#             */
-/*   Updated: 2024/11/17 12:54:52 by asyani           ###   ########.fr       */
+/*   Updated: 2024/11/17 13:54:42 by asyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_printf(const char *format, ...)
 				counts += ft_putchar(va_arg(args, int));
 			else if (format[i] == 'x')
 				counts += ft_hexa(va_arg(args, int));
+			else if (format[i] == 'X')
+				counts += ft_Hexa(va_arg(args, int));
 		}
 		else
 			counts += ft_putchar(format[i]);
@@ -50,6 +52,6 @@ int main()
 	char c = 'A';
 	int x = 74;
 
-	int i = ft_printf("hello ma name is %s and I am %d and the %c, %x\n", name, age, c, x);
+	int i = ft_printf("hello ma name is %s and I am %d and the %c, %X\n", name, age, c, x);
 	ft_printf("%d", i);
 }

@@ -15,5 +15,13 @@
 int	ft_Hexa(int n)
 {
 	char	*Hex;
+	int		count;
 
 	Hex = "0123456789ABCDEF";
+	if (n >= 16)
+	{
+		ft_Hexa(n / 16);
+	}
+	count += ft_putchar(Hex[n % 16]);
+	return (count);
+}
