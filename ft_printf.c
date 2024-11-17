@@ -36,6 +36,8 @@ int	ft_printf(const char *format, ...)
 				counts += ft_hexa(va_arg(args, int));
 			else if (format[i] == 'X')
 				counts += ft_Hexa(va_arg(args, int));
+			else if (format[i] == 'u')
+					counts += ft_unsigned(va_arg(args, int));
 		}
 		else
 			counts += ft_putchar(format[i]);
@@ -52,6 +54,7 @@ int main()
 	char c = 'A';
 	int x = 74;
 
-	int i = ft_printf("hello ma name is %s and I am %d and the %c, %X\n", name, age, c, x);
+	printf("%u\n", x);
+	int i = ft_printf("hello ma name is %s and I am %d and the %c, %u\n", name, age, c, x);
 	ft_printf("%d", i);
 }
