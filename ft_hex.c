@@ -24,12 +24,12 @@ int	ft_hexa(int n)
 	char	*hex;
 	int		count;
 
-	count = 1;
+	count = 0;
 	hex = "0123456789abcdef";
 	if (n >= 16)
 	{
-		ft_hexa(n / 16);
+		count += ft_hexa(n / 16);
 	}
-	count += ft_putchar(hex[n % 16]);
-	return (count);
+	ft_putchar(hex[n % 16]);
+	return (count + 1);
 }

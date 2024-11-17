@@ -26,7 +26,7 @@ int	ft_addr(void *v)
 		ft_putchar(p[add]);
 		return (1);
 	}
-	ft_addr((void *)(add / 16));
-	count += ft_putchar(p[add % 16]);
-	return (count);
+	count += ft_addr((void *)(add / 16));
+	ft_putchar(p[add % 16]);
+	return (count + 1);
 }

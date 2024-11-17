@@ -19,7 +19,7 @@ int	ft_printf(const char *format, ...)
 	int	counts;
 
 	i = 0;
-	counts = 1;
+	counts = 0;
 	va_start(args, format);
 	while (format[i])
 	{

@@ -27,7 +27,7 @@ static int	helper(int n)
 		count += helper(n / 10);
 	}
 	ft_putchar(n % 10 + '0');
-	return (count);
+	return (count + 1);
 }
 
 /**
