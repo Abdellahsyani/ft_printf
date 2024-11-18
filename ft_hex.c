@@ -19,7 +19,7 @@
  * return: the count of printed numbers
  */
 
-int	ft_hexa(int n)
+int	ft_hexa(long n)
 {
 	char	*hex;
 	int		count;

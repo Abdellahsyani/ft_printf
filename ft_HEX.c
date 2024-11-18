@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-int	ft_Hexa(int n)
+int	ft_Hexa(long n)
 {
 	char	*Hex;
 	int		count;

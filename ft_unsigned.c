@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-int	ft_unsigned(int n)
+int	ft_unsigned(unsigned int n)
 {
 	int	count;
 

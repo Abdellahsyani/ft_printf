@@ -33,17 +33,19 @@ int	ft_printf(const char *format, ...)
 			else if (format[i] == 'c')
 				counts += ft_putchar(va_arg(args, int));
 			else if (format[i] == 'x')
-				counts += ft_hexa(va_arg(args, int));
+				counts += ft_hexa(va_arg(args, long));
 			else if (format[i] == 'X')
-				counts += ft_Hexa(va_arg(args, int));
+				counts += ft_Hexa(va_arg(args, long));
 			else if (format[i] == 'u')
-					counts += ft_unsigned(va_arg(args, int));
+					counts += ft_unsigned(va_arg(args, unsigned int));
 			else if (format[i] == 'p')
 			{
 				counts += ft_putchar('0');
 				counts += ft_putchar('x');
 				counts += ft_addr(va_arg(args, void *));
 			}
+			else if (format[i] == '%')
+				counts += ft_percent(va_arg(args, int));
 		}
 		else
 			counts += ft_putchar(format[i]);
