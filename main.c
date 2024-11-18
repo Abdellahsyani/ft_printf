@@ -13,8 +13,8 @@ int main(void)
     addr = (void *)0x7ffe637541f0;
     ft_printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
-    ft_printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
+    ft_printf("Negative:[%d]\n", -762534456);
+    printf("Negative:[%d]\n", -762534456);
     ft_printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
     ft_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);

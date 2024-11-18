@@ -64,6 +64,8 @@ int	ft_printf(const char *format, ...)
 
 	i = 0;
 	counts = 0;
+	if (!format)
+		return (0);
 	va_start(args, format);
 	while (format[i])
 	{
