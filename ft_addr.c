@@ -12,6 +12,13 @@
 
 #include "printf.h"
 
+/**
+ * ft_addr - print address function in hex
+ * @v: void pointer to accept any address
+ *
+ * return: how many character in the address
+ */
+
 int	ft_addr(void *v)
 {
 	char		*p;

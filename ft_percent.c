@@ -12,6 +12,13 @@
 
 #include "printf.h"
 
+/**
+ * ft_percent - the function to handle the %
+ * @n: the percent %
+ *
+ * return: how many % we write
+ */
+
 int	ft_percent(int n)
 {
 	int	count;

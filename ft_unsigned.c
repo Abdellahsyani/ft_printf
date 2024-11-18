@@ -12,6 +12,13 @@
 
 #include "printf.h"
 
+/**
+ * ft_unsigned - print unsigned int numbers
+ * @n: the number that will print
+ *
+ * return: how many number we print
+ */
+
 int	ft_unsigned(unsigned int n)
 {
 	int	count;

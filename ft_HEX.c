@@ -12,17 +12,24 @@
 
 #include "printf.h"
 
-int	ft_Hexa(long n)
+/**
+ * ft_hexadecimal - the function that print hexadecimal
+ * @n: the number that we will print
+ *
+ * return: how many number we print
+ */
+
+int	ft_hexadecimal(long n)
 {
-	char	*Hex;
+	char	*hex;
 	int		count;
 
 	count = 0;
-	Hex = "0123456789ABCDEF";
+	hex = "0123456789ABCDEF";
 	if (n >= 16)
 	{
-		count += ft_Hexa(n / 16);
+		count += ft_hexadecimal(n / 16);
 	}
-	ft_putchar(Hex[n % 16]);
+	ft_putchar(hex[n % 10]);
 	return (count + 1);
 }

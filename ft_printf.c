@@ -12,6 +12,15 @@
 
 #include "printf.h"
 
+/**
+ * nada_nada - the check function for each specifier
+ * @format: the string that we will check
+ * @i: the index of each character
+ * @args: the args that will go through the string
+ *
+ * return: length of the character that we print
+ */
+
 int	nada_nada(const char *format, int i, va_list args)
 {
 	int	counts;
@@ -26,25 +35,32 @@ int	nada_nada(const char *format, int i, va_list args)
 	else if (format[i] == 'x')
 		counts += ft_hexa(va_arg(args, long));
 	else if (format[i] == 'X')
-		counts += ft_Hexa(va_arg(args, long));
+		counts += ft_hexadecimal(va_arg(args, long));
 	else if (format[i] == 'u')
 		counts += ft_unsigned(va_arg(args, unsigned int));
 	else if (format[i] == 'p')
 	{
-	counts += ft_putchar('0');
-	counts += ft_putchar('x');
-	counts += ft_addr(va_arg(args, void *));
+		counts += ft_putchar('0');
+		counts += ft_putchar('x');
+		counts += ft_addr(va_arg(args, void *));
 	}
 	else if (format[i] == '%')
 		counts += ft_percent(va_arg(args, int));
 	return (counts);
 }
 
+/**
+ * ft_printf - the printf function it will print any specifier
+ * @format: the string that we will handle
+ * 
+ * return: the length of character that we print
+ */
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int	i;
-	int	counts;
+	int		i;
+	int		counts;
 
 	i = 0;
 	counts = 0;
