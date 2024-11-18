@@ -14,9 +14,9 @@
 
 int	ft_addr(void *v)
 {
-	char	*p;
-	int	count;
-	uintptr_t add;
+	char		*p;
+	int			count;
+	uintptr_t	add;
 
 	add = (uintptr_t)v;
 	p = "0123456789abcdef";

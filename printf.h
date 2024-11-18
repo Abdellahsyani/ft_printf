@@ -1,11 +1,23 @@
-#ifndef PRINTF_H
-#define PRINTF_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printf.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asyani <asyani@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 10:15:18 by asyani            #+#    #+#             */
+/*   Updated: 2024/11/18 10:15:43 by asyani           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdint.h>
-#include <limits.h>
+#ifndef PRINTF_H
+# define PRINTF_H
+
+# include <stdio.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdint.h>
+# include <limits.h>
 
 int	ft_printf(const char *format, ...);
 int	ft_putnbr(int n);

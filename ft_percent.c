@@ -17,6 +17,7 @@ int	ft_percent(int n)
 	int	count;
 
 	count = 0;
-	count += ft_putchar(n);
+	if (n)
+		count += ft_putchar('%');
 	return (count);
 }
