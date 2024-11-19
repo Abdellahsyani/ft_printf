@@ -1,33 +1,265 @@
 #include "printf.h"
+#include <assert.h>
 
-int main(void)
+int main()
 {
-    int len;
-    int len2;
-    unsigned int ui;
-    void *addr;
+	unsigned int l = 42;
 
-    len = ft_printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
-    ui = (unsigned int)INT_MAX + 1024;
-    addr = (void *)0x7ffe637541f0;
-    ft_printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    ft_printf("Negative:[%d]\n", -762534456);
-    printf("Negative:[%d]\n", -762534456);
-    ft_printf("Unsigned:[%u]\n", ui);
-    printf("Unsigned:[%u]\n", ui);
-    ft_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    ft_printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    ft_printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    ft_printf("Address:[%p]\n", addr);
-    printf("Address:[%p]\n", addr);
-    len = ft_printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
-    ft_printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
-    return (0);
+	printf("----------------------\n");
+	printf("---> UNSIGNED INT <---\n");
+	printf("----------------------\n");
+	// test case of unsigned int 
+	ft_printf("%u\n", 1024);
+	printf("%u\n", 1024);
+	ft_printf("%u\n", (unsigned int)-1024);
+	printf("%u\n", (unsigned int)-1024);
+	ft_printf("%u\n", 0);
+	printf("%u\n", 0);
+	ft_printf("%u\n", UINT_MAX);
+	printf("%u\n", UINT_MAX);
+	ft_printf("%u\n", l);
+	printf("%u\n", l);
+	ft_printf("There are %u bytes in %u KB\n", 1024, 1);
+	printf("There are %u bytes in %u KB\n", 1024, 1);
+	ft_printf("%u - %u = %u\n", 2048, 1024, 1024);
+	printf("%u - %u = %u\n", 2048, 1024, 1024);
+	//ft_printf("%u + %u = %u\n", INT_MAX, INT_MAX, INT_MAX + INT_MAX); // Assuming 'res' is INT_MAX * 2
+	//printf("%u + %u = %u\n", INT_MAX, INT_MAX, INT_MAX + INT_MAX);  // Assuming 'res' is INT_MAX * 2
+
+	//test cases of string
+	int len_1 = 0, len_2 = 0;
+	printf("----------------------\n");
+	printf("---> STRING CASES <---\n");
+	printf("----------------------\n");
+	len_1 = printf("Expected output:    %s\n", "Morocco");
+	len_2 = ft_printf("Current output:     %s\n", "Morocco");
+	printf("Expected length:    [%d]\n", len_1);
+	ft_printf("Current length:     [%d]\n", len_2);
+	len_1 = printf("Expected output:    %s$\n", "");
+	len_2 = ft_printf("Current output:     %s$\n", "");
+	printf("Expected length:    [%d]\n", len_1);
+	ft_printf("Current length:     [%d]\n", len_2);
+	printf("Expected length:    [%d]\n", len_1);
+	ft_printf("Current length:     [%d]\n", len_2);
+	len_1 = printf("Expected output:    %s\n", "hello, world");
+	len_2 = ft_printf("Current output:     %s\n", "hello, world");
+	printf("Expected length:    [%d]\n", len_1);
+	ft_printf("Current length:     [%d]\n", len_2);
+	len_1 = printf("Expected output:    %sForLife\n", "Morocco");
+	len_2 = ft_printf("Current output:     %sForLife\n", "Morocco");
+	printf("Expected length:    [%d]\n", len_1);
+	printf("Current length:     [%d]\n", len_2);
+	ft_printf("Got: %\n");
+	printf("\nExcpected: %\n");
+	ft_printf("");
+	printf("");
+	ft_printf("\n");
+	printf("\n");
+	//ft_printf("%s\n", NULL);
+	//printf("%s\n", NULL);
+	ft_printf("Got: %%%c\n", 'X');
+	printf("Excepted: %%%c\n", 'X');
+	ft_printf("Got: %t\n");
+	printf("Excepted: %t\n");
+	ft_printf("Got: space :%	  s\n", "hello");
+	ft_printf("Excepted: space :%	  s\n", "hello");
+	// test case integer
+	//int len_1, len_2;
+
+	/* ===========> %d <=========== */
+	printf("----------------------\n");
+	printf("--> INT(%%d) CASES <---\n");
+	printf("----------------------\n");
+	len_1 = printf("%d\n", 0);
+	len_2 = ft_printf("%d\n", 0);
+	assert(len_1 == len_2);
+
+	len_2 = printf("%d\n", INT_MIN);
+	len_1 = ft_printf("%d\n", INT_MIN);
+	//assert(len_1 == len_2);
+
+	len_1 = printf("%d\n", INT_MAX);
+	len_2 = ft_printf("%d\n", INT_MAX);
+	//assert(len_1 == len_2);
+
+	/* ===========> %i <=========== */
+	printf("----------------------\n");
+	printf("--> INT(%%i) CASES <---\n");
+	printf("----------------------\n");
+	len_1 = printf("%i\n", 0);
+	len_2 = ft_printf("%i\n", 0);
+	assert(len_1 == len_2);
+
+	len_2 = printf("%i\n", INT_MIN);
+	len_1 = ft_printf("%i\n", INT_MIN);
+	//assert(len_1 == len_2);
+
+	len_1 = printf("%i\n", INT_MAX);
+	len_2 = ft_printf("%i\n", INT_MAX);
+	//assert(len_1 == len_2);
+	printf("----------------------\n");
+	printf("-----> hex CASES <----\n");
+	printf("----------------------\n");
+	len_1 = printf("%x\n", 0);
+	len_2 = ft_printf("%x\n", 0);
+	assert(len_1 == len_2);
+
+	len_2 = printf("%x\n", 255);
+	len_1 = ft_printf("%x\n", 255);
+	assert(len_1 == len_2);
+
+	len_1 = printf("%x\n", UINT_MAX);
+	len_2 = ft_printf("%x\n", UINT_MAX);
+	assert(len_1 == len_2);
+
+	/* ===========> %X <=========== */
+	printf("----------------------\n");
+	printf("-----> HEX CASES <----\n");
+	printf("----------------------\n");
+	len_1 = printf("%X\n", 0);
+	len_2 = ft_printf("%X\n", 0);
+	assert(len_1 == len_2);
+
+	len_2 = printf("%X\n", 255);
+	len_1 = ft_printf("%X\n", 255);
+	assert(len_1 == len_2);
+
+	len_1 = printf("%X\n", UINT_MAX);
+	len_2 = ft_printf("%X\n", UINT_MAX);
+	assert(len_1 == len_2);
+	//test address
+	printf("----------------------\n");
+	printf("-----> address CASES <----\n");
+	printf("----------------------\n");
+	int len;
+	int len2;
+
+	// Test case 1
+	void *p1 = (void *)0x7fff5100b608;
+	len = ft_printf("%p", p1);
+	printf("\n\n");
+	len2 = printf("%p", p1);
+	printf("\n\n");
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		printf("\n\n");
+		fflush(stdout);
+		return 1;
+	}
+
+	// Test case 2
+	printf("\n---------------\n");
+/*	void *p2 = NULL;
+	len = ft_printf("%p", p2);
+	printf("\n\n");
+	len2 = printf("%p", p2);
+	printf("\n\n");
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		printf("\n\n");
+		fflush(stdout);
+		return 1;
+	}*/
+
+	// Test case 3
+	printf("\n---------------\n");
+	void *p3 = (void *)0x7fff5100b6f8;
+	len = ft_printf("Can you print an address?\n%p\nNice!\n", p3);
+	printf("\n\n");
+	len2 = printf("Can you print an address?\n%p\nNice!\n", p3);
+	printf("\n\n");
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		printf("\n\n");
+		fflush(stdout);
+		return 1;
+	}
+
+	// Test case 4
+	printf("\n---------------\n");
+	void *p4 = (void *)0x7fff5100b6f8;
+	void *p5 = (void *)0x7faf51f0f608;
+	void *p6 = (void *)0x6ff42510b6f8;
+	void *p7 = (void *)0x7fff510236f8;
+	len = ft_printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", p4, p5, p6, p7);
+	printf("\n\n");
+	len2 = printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", p4, p5, p6, p7);
+	printf("\n\n");
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		printf("\n\n");
+		fflush(stdout);
+		return 1;
+	}
+
+	// Test case 5
+	printf("\n---------------\n");
+	len = ft_printf("");
+	printf("\n\n");
+	len2 = printf("");
+	printf("\n\n");
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		printf("\n\n");
+		fflush(stdout);
+		return 1;
+	}
+
+	// Test case 6
+	printf("\n---------------\n");
+	void *p8 = (void *)-1;
+	len = ft_printf("Can you print an address?\n%p\nNice!\n", p8);
+	printf("\n\n");
+	len2 = printf("Can you print an address?\n%p\nNice!\n", p8);
+	printf("\n\n");
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		printf("\n\n");
+		fflush(stdout);
+		return 1;
+	}
+
+	// Test case 7
+	printf("\n---------------\n");
+	void *p9 = (void *)0x7fff5100b6f8;
+	len = ft_printf("%pppp", p9);
+	printf("\n\n");
+	len2 = printf("%pppp", p9);
+	printf("\n\n");
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		printf("\n\n");
+		fflush(stdout);
+		return 1;
+	}
+
+	return (0);
 }

@@ -25,6 +25,11 @@ int	ft_addr(void *v)
 	int			count;
 	uintptr_t	add;
 
+	if (v == NULL)
+	{
+		write(1, "(nil)", 5);
+		return (1);
+	}
 	add = (uintptr_t)v;
 	p = "0123456789abcdef";
 	count = 0;

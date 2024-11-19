@@ -30,6 +30,6 @@ int	ft_hexadecimal(long n)
 	{
 		count += ft_hexadecimal(n / 16);
 	}
-	ft_putchar(hex[n % 10]);
+	ft_putchar(hex[n % 16]);
 	return (count + 1);
 }

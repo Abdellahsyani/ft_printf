@@ -24,11 +24,6 @@ int	ft_putstr(char *str)
 
 	count = 0;
 	i = 0;
-	if (!str)
-	{
-		write(1, "(null)", 6);
-		return (-1);
-	}
 	while (str[i])
 	{
 		ft_putchar(str[i]);

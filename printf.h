@@ -27,6 +27,5 @@ int	ft_hexa(long n);
 int	ft_hexadecimal(long n);
 int	ft_unsigned(unsigned int n);
 int	ft_addr(void *v);
-int	ft_percent(int n);
 
 #endif

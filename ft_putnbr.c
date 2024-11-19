@@ -17,7 +17,7 @@
  * @n: the number to print
  */
 
-static int	helper(int n)
+static int	helper(unsigned int n)
 {
 	int	count;
 

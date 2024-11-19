@@ -45,7 +45,7 @@ int	nada_nada(const char *format, int i, va_list args)
 		counts += ft_addr(va_arg(args, void *));
 	}
 	else if (format[i] == '%')
-		counts += ft_percent(va_arg(args, int));
+		counts += ft_putchar('%');
 	return (counts);
 }
 
