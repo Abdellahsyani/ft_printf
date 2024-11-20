@@ -42,7 +42,7 @@ int	ft_putnbr(int n)
 	count = 0;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		count += ft_putchar('-');
 		count += helper(-n);
 	}
 	else

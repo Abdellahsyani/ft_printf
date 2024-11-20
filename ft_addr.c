@@ -45,8 +45,7 @@ int	ft_addr(void *v)
 	count = 0;
 	if (v == NULL)
 	{
-		write(1, "(nil)", 5);
-		return (5);
+		return (write(1, "(nil)", 5));
 	}
 	count += ft_putchar('0');
 	count += ft_putchar('x');
