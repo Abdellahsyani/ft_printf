@@ -23,8 +23,8 @@ int	ft_printf(const char *format, ...);
 int	ft_putnbr(int n);
 int	ft_putstr(char *str);
 int	ft_putchar(char c);
-int	ft_hexa(long n);
-int	ft_hexadecimal(long n);
+int	ft_hexa(unsigned int n);
+int	ft_hexadecimal(unsigned int n);
 int	ft_unsigned(unsigned int n);
 int	ft_addr(void *v);
 

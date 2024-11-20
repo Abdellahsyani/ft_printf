@@ -40,8 +40,8 @@ int	nada_nada(const char *format, int i, va_list args)
 		counts += ft_unsigned(va_arg(args, unsigned int));
 	else if (format[i] == 'p')
 	{
-		counts += ft_putchar('0');
-		counts += ft_putchar('x');
+	//	counts += ft_putchar('0');
+	//	counts += ft_putchar('x');
 		counts += ft_addr(va_arg(args, void *));
 	}
 	else if (format[i] == '%')

@@ -25,14 +25,19 @@ int	ft_addr(void *v)
 	int			count;
 	uintptr_t	add;
 
+	count = 0;
 	if (v == NULL)
 	{
 		write(1, "(nil)", 5);
 		return (1);
 	}
+	else
+	{
+		count += ft_putchar('0');
+		count += ft_putchar('x');
+	}
 	add = (uintptr_t)v;
 	p = "0123456789abcdef";
-	count = 0;
 	if (add < 16)
 	{
 		ft_putchar(p[add]);
