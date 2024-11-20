@@ -10,8 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
+static int ikhan(void *v)
+{
+	uintptr_t	add;
+	int		count;
+	char 		*p;
+
+	count = 0;
+	add = (uintptr_t)v;
+	p = "0123456789abcdef";
+	if (add < 16)
+	{
+		ft_putchar(p[add]);
+		return (1);
+	}
+	count += ikhan((void *)(add / 16));
+	ft_putchar(p[add % 16]);
+	return (count);
+
+}
 /**
  * ft_addr - print address function in hex
  * @v: void pointer to accept any address
@@ -21,9 +40,7 @@
 
 int	ft_addr(void *v)
 {
-	char		*p;
 	int			count;
-	uintptr_t	add;
 
 	count = 0;
 	if (v == NULL)
@@ -31,19 +48,8 @@ int	ft_addr(void *v)
 		write(1, "(nil)", 5);
 		return (1);
 	}
-	else
-	{
-		count += ft_putchar('0');
-		count += ft_putchar('x');
-	}
-	add = (uintptr_t)v;
-	p = "0123456789abcdef";
-	if (add < 16)
-	{
-		ft_putchar(p[add]);
-		return (1);
-	}
-	count += ft_addr((void *)(add / 16));
-	ft_putchar(p[add % 16]);
-	return (count + 1);
+	count += ft_putchar('0');
+	count += ft_putchar('x');
+	count += ikhan(v);
+	return (count);
 }

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaferyad <aaferyad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 11:04:49 by aaferyad          #+#    #+#             */
-/*   Updated: 2024/11/18 11:04:54 by aaferyad         ###   ########.fr       */
+/*   Created: 2024/11/20 14:34:05 by aaferyad          #+#    #+#             */
+/*   Updated: 2024/11/20 14:34:23 by aaferyad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 /**
  * ft_putstr - function that print strings
@@ -24,6 +24,8 @@ int	ft_putstr(char *str)
 
 	count = 0;
 	i = 0;
+	if (!str)
+		write(1, "(nil)", 5);
 	while (str[i])
 	{
 		ft_putchar(str[i]);
