@@ -12,11 +12,11 @@
 
 #include "ft_printf.h"
 
-static int ikhan(void *v)
+static int	ikhan(void *v)
 {
 	uintptr_t	add;
-	int		count;
-	char 		*p;
+	int			count;
+	char		*p;
 
 	count = 0;
 	add = (uintptr_t)v;
@@ -29,7 +29,6 @@ static int ikhan(void *v)
 	count += ikhan((void *)(add / 16));
 	count += ft_putchar(p[add % 16]);
 	return (count);
-
 }
 /**
  * ft_addr - print address function in hex
