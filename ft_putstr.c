@@ -24,8 +24,10 @@ int	ft_putstr(char *str)
 
 	count = 0;
 	i = 0;
-	if (!str)
-		write(1, "(nil)", 5);
+	if (str == NULL)
+	{
+		return (write(1, "(nil)", 5));
+	}
 	while (str[i])
 	{
 		ft_putchar(str[i]);

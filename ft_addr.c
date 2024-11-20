@@ -27,7 +27,7 @@ static int ikhan(void *v)
 		return (1);
 	}
 	count += ikhan((void *)(add / 16));
-	ft_putchar(p[add % 16]);
+	count += ft_putchar(p[add % 16]);
 	return (count);
 
 }
@@ -46,7 +46,7 @@ int	ft_addr(void *v)
 	if (v == NULL)
 	{
 		write(1, "(nil)", 5);
-		return (1);
+		return (5);
 	}
 	count += ft_putchar('0');
 	count += ft_putchar('x');
