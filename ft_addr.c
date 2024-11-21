@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	ikhan(void *v)
+static int	print_addr(void *v)
 {
 	uintptr_t	add;
 	int			count;
@@ -26,7 +26,7 @@ static int	ikhan(void *v)
 		ft_putchar(p[add]);
 		return (1);
 	}
-	count += ikhan((void *)(add / 16));
+	count += print_addr((void *)(add / 16));
 	count += ft_putchar(p[add % 16]);
 	return (count);
 }
@@ -48,6 +48,6 @@ int	ft_addr(void *v)
 	}
 	count += ft_putchar('0');
 	count += ft_putchar('x');
-	count += ikhan(v);
+	count += print_addr(v);
 	return (count);
 }

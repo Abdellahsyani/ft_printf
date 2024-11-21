@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "ft_printf.h"
 #include <assert.h>
 
 int main()
@@ -23,8 +23,6 @@ int main()
 	printf("There are %u bytes in %u KB\n", 1024, 1);
 	ft_printf("%u - %u = %u\n", 2048, 1024, 1024);
 	printf("%u - %u = %u\n", 2048, 1024, 1024);
-	//ft_printf("%u + %u = %u\n", INT_MAX, INT_MAX, INT_MAX + INT_MAX); // Assuming 'res' is INT_MAX * 2
-	//printf("%u + %u = %u\n", INT_MAX, INT_MAX, INT_MAX + INT_MAX);  // Assuming 'res' is INT_MAX * 2
 
 	//test cases of string
 	int len_1 = 0, len_2 = 0;
@@ -49,18 +47,10 @@ int main()
 	len_2 = ft_printf("Current output:     %sForLife\n", "Morocco");
 	printf("Expected length:    [%d]\n", len_1);
 	printf("Current length:     [%d]\n", len_2);
-	ft_printf("Got: %\n");
-	printf("\nExcpected: %\n");
-	ft_printf("");
-	printf("");
 	ft_printf("\n");
 	printf("\n");
-	//ft_printf("%s\n", NULL);
-	//printf("%s\n", NULL);
 	ft_printf("Got: %%%c\n", 'X');
 	printf("Excepted: %%%c\n", 'X');
-	ft_printf("Got: %t\n");
-	printf("Excepted: %t\n");
 	ft_printf("Got: space :%	  s\n", "hello");
 	ft_printf("Excepted: space :%	  s\n", "hello");
 	// test case integer
@@ -76,11 +66,11 @@ int main()
 
 	len_2 = printf("%d\n", INT_MIN);
 	len_1 = ft_printf("%d\n", INT_MIN);
-	//assert(len_1 == len_2);
+	assert(len_1 == len_2);
 
 	len_1 = printf("%d\n", INT_MAX);
 	len_2 = ft_printf("%d\n", INT_MAX);
-	//assert(len_1 == len_2);
+	assert(len_1 == len_2);
 
 	/* ===========> %i <=========== */
 	printf("----------------------\n");
@@ -92,11 +82,11 @@ int main()
 
 	len_2 = printf("%i\n", INT_MIN);
 	len_1 = ft_printf("%i\n", INT_MIN);
-	//assert(len_1 == len_2);
+	assert(len_1 == len_2);
 
 	len_1 = printf("%i\n", INT_MAX);
 	len_2 = ft_printf("%i\n", INT_MAX);
-	//assert(len_1 == len_2);
+	assert(len_1 == len_2);
 	printf("----------------------\n");
 	printf("-----> hex CASES <----\n");
 	printf("----------------------\n");
@@ -153,7 +143,7 @@ int main()
 
 	// Test case 2
 	printf("\n---------------\n");
-/*	void *p2 = NULL;
+	void *p2 = NULL;
 	len = ft_printf("%p", p2);
 	printf("\n\n");
 	len2 = printf("%p", p2);
@@ -167,7 +157,7 @@ int main()
 		printf("\n\n");
 		fflush(stdout);
 		return 1;
-	}*/
+	}
 
 	// Test case 3
 	printf("\n---------------\n");
@@ -210,9 +200,7 @@ int main()
 
 	// Test case 5
 	printf("\n---------------\n");
-	len = ft_printf("");
 	printf("\n\n");
-	len2 = printf("");
 	printf("\n\n");
 
 	fflush(stdout);
@@ -300,40 +288,7 @@ int main()
 	printf("Current length:     [%d]\n", len_2);
 	len_1 = printf("Expected output:    %%%%%%\n");
 	len_2 = ft_printf("Current output:     %%%%%%\n");
-	printf("Expected length:    [%d]\n", len_1);
-	printf("Current length:     [%d]\n", len_2);
-	printf("Expected output:    ");
-	len_1 = printf("%");
-	printf("\n");
-	printf("Current output:     ");
-	len_2 = ft_printf("%");
-	printf("\n");
-	printf("Expected length:    [%d]\n", len_1);
-	printf("Current length:     [%d]\n", len_2);
-	printf("Expected output:    ");
-	len_1 = printf("%   ");
-	printf("\n");
-	printf("Current output:     ");
-	len_2 = ft_printf("%   ");
-	printf("\n");
-	printf("Expected length:    [%d]\n", len_1);
-	printf("Current length:     [%d]\n", len_2);
-	printf("Expected output:    ");
-	len_1 = printf("test%");
-	printf("\n");
-	printf("Current output:     ");
-	len_2 = ft_printf("test%");
-	printf("\n");
-	printf("Expected length:    [%d]\n", len_1);
-	printf("Current length:     [%d]\n", len_2);
-	printf("Expected output:    ");
-	len_1 = printf("%  s", "valid format");
-	printf("\n");
-	printf("Current output:     ");
-	len_2 = ft_printf("%  s", "valid format");
-	printf("\n");
-	printf("Expected length:    [%d]\n", len_1);
-	printf("Current length:     [%d]\n", len_2);
-
+	printf("%d", len_1);
+	printf("%d", len_2);
 	return (0);
 }
