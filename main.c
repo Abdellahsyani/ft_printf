@@ -29,6 +29,8 @@ int main()
 	printf("----------------------\n");
 	printf("---> STRING CASES <---\n");
 	printf("----------------------\n");
+	//printf("%s\n", (char *)NULL);
+	ft_printf("%s\n", (char *)NULL);
 	len_1 = printf("Expected output:    %s\n", "Morocco");
 	len_2 = ft_printf("Current output:     %s\n", "Morocco");
 	printf("Expected length:    [%d]\n", len_1);
